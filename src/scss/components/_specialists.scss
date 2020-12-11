@@ -1,0 +1,66 @@
+.Specialists {
+    padding-top: 100px;
+
+    @media(max-width: 960px) {
+        padding-top: 40px;
+    } 
+
+    .heading {
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 37px;
+        color: $red;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 80px;
+
+        @media(max-width: 960px) {
+            margin-bottom: 30px;
+        }
+    }
+
+    .wrapSlider {
+        padding-left: 105px;
+        padding-right: 105px;
+    }
+
+    .slick-prev, .slick-next {
+        width: 40px;
+        height: 30px;
+        border-radius: 50%;
+        top: 107px;
+        border: 0;
+        z-index: 99;
+    }
+
+    .slick-prev {
+        left: -70px;
+        background: transparent url('../../img/arrow_left_red.svg') no-repeat center center ;
+    }
+
+    .slick-next {
+        right: -70px;
+        background: transparent url('../../img/arrow_right_red.svg') no-repeat center center ;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        display: none;
+    }
+
+    .slick-disabled {
+        display: none!important;
+    }
+
+    .slick-list {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    @media(max-width: 670px) {
+        .slick-list {
+            padding-left: 0!important;
+        }
+    }
+
+}
