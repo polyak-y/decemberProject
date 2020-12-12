@@ -1,8 +1,8 @@
-import { useRef, useState, useEffect } from 'react';
-import Fade   from '@material-ui/core/Fade';
-import { YMaps, Map, Placemark, Clusterer, ObjectManager } from 'react-yandex-maps';
-import { otherRegions } from '../core/mosRegions';
-import pin from '../img/pin.svg';
+import { useRef, useState }                                 from 'react';
+import Fade                                                 from '@material-ui/core/Fade';
+import ClasterAndPlaceMark                                  from './ClasterAndPlaceMark';
+import { YMaps, Map, ObjectManager }                        from 'react-yandex-maps';
+import { otherRegions }                                     from '../core/mosRegions';
 
 const coordinatesMap =  [
     {id:1, coord: [55.755631225161885,36.73869543037936]},
@@ -42,6 +42,7 @@ const YandexMap = ({ visible }) => {
                                 //console.log(yaMap)
                                 map.current = yaMap;
                                 yaMap.controls.get('zoomControl').options.set({size: 'small'});
+                                yaMap.behaviors.disable('scrollZoom');  //отключили zoom на колесико мыши
                             }
                         }}
                         onLoad={ymaps => {
@@ -83,39 +84,8 @@ const YandexMap = ({ visible }) => {
                                 /> : null
                         }
 
-                        <Clusterer // обертка для Placemark, при увеличении масштаба объеденяет рядом стоящие Placemark в один кружок
-                            options={{
-                                preset: 'islands#invertedDarkGreenClusterIcons', // название иконки 
-                                groupByCoordinates: false 
-                            }}
-                        >
-                            {
-                                coordinatesMap.map(item => { //через цикл вывели много меток PlaceMark
-                                    return (
-                                        <Placemark // метка на карте. Чтобы сделать несколько меток Placemark надо поместить в массив
-                                            key={item.id}
-                                            geometry={item.coord} // координаты метки
-                                            options={{
-                                                iconLayout: 'default#image',
-                                                iconImageHref: pin, //установили в качестве метки свою картинку
-                                                iconImageSize: [30, 30], // размер нашей картинки
-                                                hideIconOnBalloonOpen: false, //запрет на скрытие метки по клику на балун
-                                                balloonOffset: [3, -40]
-
-                                            }}
-                                            modules={[ //чтобы видеть хинты и балуны подключаем данные модули
-                                                'objectManager.addon.objectsBalloon',
-                                                'objectManager.addon.objectsHint',
-                                            ]}
-                                            properties={{
-                                                balloonContentHeader: "Balloon3",
-                                                balloonContent: "<p style='color: red'>Balloon3 <strong>Test</strong></p>"
-                                            }}
-                                        />
-                                    )
-                                })
-                            }
-                        </Clusterer>
+                        <ClasterAndPlaceMark coordinatesMap={coordinatesMap} />
+                        
                     </Map>
                 </YMaps>
             </div>

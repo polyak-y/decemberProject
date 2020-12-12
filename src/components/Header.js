@@ -37,9 +37,9 @@ const Header = () => {
                     </IconButton> 
 
                     <div className="links">
-                        <NavLink exact activeClassName="active" to="/">О портале</NavLink>
-                        <NavLink activeClassName="active" to="/news">Новости</NavLink>
-                        <NavLink activeClassName="active" to="/question_answer">Вопрос-ответ</NavLink>
+                        <NavLink exact activeClassName="active" to="/">Об онкологии</NavLink>
+                        <NavLink activeClassName="active" to="/news">Куда обратиться</NavLink>
+                        <NavLink activeClassName="active" to="/question_answer">Список врачей</NavLink>
                         <SearchIcon className="search" />
                     </div>
                 </Toolbar> 

@@ -97,4 +97,15 @@ export function fillColorMosReg (setPolygons) {
     setPolygons(polygons)
 }
 
+//функция формирования контента балуна
+export function createHTMLBaloon () {
+    return `
+        <div class="wrapBaloon">
+            <p class="titleBaloon">Государственное бюджетное учреждение здравоохранения Московской области «Балашихинская областная больница»</p>
+            <span class="adsress">143900 г.Балашиха, ш.Энтузиастов д.41</span>
+            <span class="phoneBaloon">8 (915) 451-08-24</span>
+        </div>
+    `
+}
+
 

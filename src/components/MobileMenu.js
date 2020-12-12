@@ -1,9 +1,10 @@
-import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
+import List                     from '@material-ui/core/List';
+import ListItem                 from '@material-ui/core/ListItem';
+import ListItemIcon             from '@material-ui/core/ListItemIcon';
+import ListItemText             from '@material-ui/core/ListItemText';
+import InfoIcon                 from '@material-ui/icons/Info';
+import NotListedLocationIcon    from '@material-ui/icons/NotListedLocation';
+import ListAltIcon              from '@material-ui/icons/ListAlt';
 
 const MobileMenu = ({ toggleDrawer }) => {
     return (
@@ -11,10 +12,10 @@ const MobileMenu = ({ toggleDrawer }) => {
             <List className="MobileMenu">
                 <ListItem button className="listItem">
                     <ListItemIcon>
-                        <MailIcon className="iconMenu" />
+                        <InfoIcon className="iconMenu" />
                     </ListItemIcon>
                     <ListItemText 
-                        primary={'О портале'} 
+                        primary={'Об онкологии'} 
                         classes={{
                             primary: 'vp_text'
                         }}
@@ -23,25 +24,25 @@ const MobileMenu = ({ toggleDrawer }) => {
                 
                 <ListItem button className="listItem">
                     <ListItemIcon>
-                        <MailIcon className="iconMenu" />
+                        <NotListedLocationIcon className="iconMenu" />
                     </ListItemIcon>
                     <ListItemText 
                         classes={{
                             primary: 'vp_text'
                         }}
-                        primary={'Новости'} 
+                        primary={'Куда обратиться'} 
                     />
                 </ListItem>
         
                 <ListItem button className="listItem">
                     <ListItemIcon>
-                        <MailIcon className="iconMenu"/>
+                        <ListAltIcon className="iconMenu"/>
                     </ListItemIcon>
                     <ListItemText
                         classes={{
                             primary: 'vp_text'
                         }}
-                        primary={'Вопрос-ответ'} 
+                        primary={'Список врачей'} 
                     />
                 </ListItem>
             </List>

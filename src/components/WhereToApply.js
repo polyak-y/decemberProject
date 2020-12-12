@@ -24,19 +24,6 @@ const WhereToApply = () => {
         setState(prev => ({...prev, [name]: value}))
     }
 
-   /*  const renderTabPage = () => {
-        switch(value) {
-            case 0: 
-                return <YandexMap />
-
-            case 1:
-                return <FilterBlock />
-
-            default:
-                return null;
-        }
-    } */
-
     return (
        
         <div className={'WhereToApply'}>

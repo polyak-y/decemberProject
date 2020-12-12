@@ -2,15 +2,18 @@ import React                from 'react';
 import WrapContent          from '../HOC/WrapContent/WrapContent';
 import Fade                 from '@material-ui/core/Fade';
 import { Scrollbars }       from 'react-custom-scrollbars';
+import useMediaQuery        from '@material-ui/core/useMediaQuery';
  
 const FilterBlock = ({ visible }) => {
+    const matches = useMediaQuery('(max-width:500px)');
+
     return (
         <Fade in={visible} timeout={300}>
             <div className={'FilterBlock'} style={{display: !visible ? 'none' : 'block'}}>
                 <WrapContent>
                     <Scrollbars
                         autoHeight
-                        autoHeightMax={540}
+                        autoHeightMax={matches ? 320 : 620}
                         renderTrackHorizontal={props => <div {...props} className="track-horizontal"/>}
                         renderTrackVertical={props => <div {...props} className="track-vertical"/>}
                         renderThumbHorizontal={props => <div {...props} className="thumb-horizontal"/>}
